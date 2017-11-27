@@ -6,7 +6,12 @@ var init = function () {
         var list = $("#list");
         list.empty();
         for (var p in res) {
-            var tr = '<tr><td><a class="model-name" href="#">' + res[p] + '</a></td></tr>';
+            var v = res[p];
+
+            var tr = '<tr>' +
+                '<td><a class="model-name" href="#">' + v['name'] + '</a></td>' +
+                '<td><span>' + v['count'] + '</span></td>' +
+                '</tr>';
             list.append(tr);
         }
 
