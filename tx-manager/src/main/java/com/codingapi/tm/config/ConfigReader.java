@@ -35,6 +35,9 @@ public class ConfigReader {
 
     @Value("${tm.compensate.tryTime}")
     private int compensateTryTime;
+    
+    @Value("${tm.auto.compensate.limit}")
+    private int autoCompensateLimit;
 
 
 
@@ -43,10 +46,10 @@ public class ConfigReader {
      */
     private final String key_prefix = "tx_manager_default_";
 
-    /**
-     * 事务存在问题，临时暂存的位置，用于等待网络超时和补偿请求之前的存储位置，有最大时间
-     */
-    private final String key_prefix_notify = "tx_manager_notify_";
+//    /**
+//     * 事务存在问题，临时暂存的位置，用于等待网络超时和补偿请求之前的存储位置，有最大时间
+//     */
+//    private final String key_prefix_notify = "tx_manager_notify_";
 
     /**
      * 补偿事务永久存储数据
@@ -62,9 +65,9 @@ public class ConfigReader {
         return key_prefix;
     }
 
-    public String getKeyPrefixNotify() {
-        return key_prefix_notify;
-    }
+//    public String getKeyPrefixNotify() {
+//        return key_prefix_notify;
+//    }
 
     public String getKeyPrefixCompensate() {
         return key_prefix_compensate;
@@ -97,4 +100,10 @@ public class ConfigReader {
     public int getCompensateTryTime() {
         return compensateTryTime;
     }
+
+	public int getAutoCompensateLimit() {
+		return autoCompensateLimit;
+	}
+    
+    
 }
